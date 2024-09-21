@@ -3,9 +3,20 @@
         <h1>Todo</h1>
     </div>
     <div>
+        <form action="" method="get">
+            <input type="text" name="q" placeholder="search todo ...">
+            <button type="submit">search</button>
+        </form>
+    </div>
+    <div>
         <ul>
             <li><a href="{% url 'todo-list' %}">Home</a></li>
             <li><a href="{% url 'create-todo' %}">Create</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">login</a></li>
+            {% endif %}
         </ul>
     </div>
 </nav>

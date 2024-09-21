@@ -1,0 +1,28 @@
+{% extends "base/main.html" %}
+
+{% block content %}
+
+<div>
+    <h1>Signup</h1>
+
+    <form method='post'>
+        {% csrf_token %}
+        <div>
+            <label for="username">Username:</label>
+           {{form.username}}
+        </div>
+        <div>
+            <label for="password1">Password:</label>
+           {{form.password1}}
+        </div>
+        <div>
+            <label for="password2">Confirm Password:</label>
+            {{form.password2}}
+        </div>
+       <button type="submit">signup</button>
+    </form>
+
+    <p>already have an account? <a href="{% url 'login' %}">login</a></p>
+</div>
+
+{% endblock content %}
